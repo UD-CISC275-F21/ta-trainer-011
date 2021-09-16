@@ -1,28 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import { Welcome } from './components/welcome';
-
+import { Prompt } from './components/Prompt';
+import { SwapButton } from './components/SwapButton';
+import './utilities/addition';
 
 function App(): JSX.Element {
+  const [prompt, setPrompt] = useState<string>("Do Something!");
   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Welcome name="Dr. Bart" />
-        <Welcome name="Ada" />
-        <Welcome name="Babbage" />
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Prompt text={prompt}></Prompt>
+      <SwapButton change={setPrompt}></SwapButton>
     </div>
   );
 }
